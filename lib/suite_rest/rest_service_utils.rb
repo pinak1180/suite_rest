@@ -4,7 +4,7 @@ module SuiteRest
 
     def service_uri(script_id, deploy_id, is_sandbox)
       if is_sandbox
-        "https://rest.netsuite.com/app/site/hosting/restlet.nl?script=#{script_id}&deploy=#{deploy_id}"
+        "https://4868589-sb1.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=#{script_id}&deploy=#{deploy_id}"
       else
         "https://rest.na2.netsuite.com/app/site/hosting/restlet.nl?script=#{script_id}&deploy=#{deploy_id}"
       end
