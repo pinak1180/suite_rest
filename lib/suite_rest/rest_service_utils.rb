@@ -6,7 +6,7 @@ module SuiteRest
       if is_sandbox
         "https://4868589-sb2.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=#{script_id}&deploy=#{deploy_id}"
       else
-        "https://rest.na2.netsuite.com/app/site/hosting/restlet.nl?script=#{script_id}&deploy=#{deploy_id}"
+        "https://4868589.restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=#{script_id}&deploy=#{deploy_id}"
       end
     end
 
