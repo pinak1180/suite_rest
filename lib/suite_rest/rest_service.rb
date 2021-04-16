@@ -12,7 +12,7 @@ module SuiteRest
     end
 
     def get_or_delete(args={})
-      uri = self.class.parsed_uri(@script_id, @deploy_id, 
+      uri = self.class.parsed_uri(@script_id, @deploy_id,
         SuiteRest.configuration.sandbox, self.class.urlify(args, @args_def))
       http = self.class.http(uri)
 
@@ -23,7 +23,7 @@ module SuiteRest
         request = Net::HTTP::Delete.new(uri.request_uri)
       end
 
-      self.class.add_request_fields(request, SuiteRest.configuration.auth_string)
+      self.class.add_request_fields(request, SuiteRest.configuration.auth_string(request_method: @type, script: @script_id, deploy: @deploy_id))
       response =  self.class.check_response(http.request(request))
 
       # By NS definition, delete restlets should not return anything, so we'll
@@ -46,7 +46,7 @@ module SuiteRest
         request = Net::HTTP::Post.new(uri.request_uri)
       end
 
-      self.class.add_request_fields(request, SuiteRest.configuration.auth_string)
+      self.class.add_request_fields(request, SuiteRest.configuration.auth_string(request_method: @type, script: @script_id, deploy: @deploy_id))
       request.body = self.class.payloadify(args, @args_def)
       response = self.class.check_response(http.request(request))
 

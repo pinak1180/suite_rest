@@ -46,12 +46,12 @@ module SuiteRest
       end
       payload.to_json
     end
-    
+
     def check_response(http_response)
       if http_response.code == "200"
         return http_response
       else
-        raise "Error Code #{http_response.code}: #{http_response.msg}"
+        raise "Error Code #{http_response.code}: #{http_response.read_body}"
       end
     end
 
